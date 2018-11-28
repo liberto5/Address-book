@@ -4,33 +4,88 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>170</x>
-      <y>110</y>
+      <x>10</x>
+      <y>10</y>
       <w>220</w>
-      <h>120</h>
+      <h>80</h>
     </coordinates>
     <panel_attributes>KsiazkaAdresowa
 --
-idZalogowanegoUzytkownika : Integer
-idOstatniegoAdresata : Integer
-idUsunietegoAdresata : Integer</panel_attributes>
+- uzytkownikMenedzer : UzytkownikMenedzer;
+--
++ rejestracjaUzytkownika() : void
++ wypiszWszystkichUzytkownikow() : void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>400</x>
-      <y>110</y>
+      <x>240</x>
+      <y>10</y>
       <w>100</w>
       <h>110</h>
     </coordinates>
     <panel_attributes>Uzytkownik
 --
-id: Integer
-login : String
-haslo: String
+- id: Integer
+- login : String
+- haslo: String
 --
-rejestracjaUzytkownika () : void</panel_attributes>
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>350</x>
+      <y>10</y>
+      <w>290</w>
+      <h>280</h>
+    </coordinates>
+    <panel_attributes>UzytkownikMenedzer
+--
+- idZalogowanegoUzytkownika : Integer
+- uzytkownicy : vector &lt;Uzytkownik&gt;
+--
++ rejestracjaUzytkownika () : void
++ logowanieUzytkownika () : Integer
+- podajDaneNowegoUzytkownika () : Uzytkownik
+- pobierzIdNowegoUzytkownika () : Integer
+- czyIstniejeLogin () : bool
++ wypiszWszystkichUzytkownikow () : void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>10</x>
+      <y>100</y>
+      <w>220</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>PlikZUzytkownikami
+--
+- nazwaPlikuZUzytkownikami : String
+- fstream : plikTekstowy
+--
++ PlikZUzytkownikami()
++ dopiszUzytkownikaDoPliku () : void
+- czyPlikJestPusty () : bool
+- zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami () : String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>10</x>
+      <y>230</y>
+      <w>220</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>MetodyPomocnicze
+--
+--
++ konwerjsaIntNaString () : String</panel_attributes>
     <additional_attributes/>
   </element>
 </diagram>
