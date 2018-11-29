@@ -11,10 +11,9 @@
     </coordinates>
     <panel_attributes>KsiazkaAdresowa
 --
-- uzytkownikMenedzer : UzytkownikMenedzer;
+- uzytkownikMenedzer : UzytkownikMenedzer
 --
-+ rejestracjaUzytkownika() : void
-+ wypiszWszystkichUzytkownikow() : void</panel_attributes>
+KsiazkaAdresowa()</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -52,7 +51,8 @@
 - podajDaneNowegoUzytkownika () : Uzytkownik
 - pobierzIdNowegoUzytkownika () : Integer
 - czyIstniejeLogin () : bool
-+ wypiszWszystkichUzytkownikow () : void</panel_attributes>
++ wypiszWszystkichUzytkownikow () : void
++ wczytajUzytkownikowZPliku () : void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -71,7 +71,8 @@
 + PlikZUzytkownikami()
 + dopiszUzytkownikaDoPliku () : void
 - czyPlikJestPusty () : bool
-- zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami () : String</panel_attributes>
+- zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami () : String
++ wczytajUzytkownikowZPliku () : vector&lt;Uzytkownik&gt;</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
