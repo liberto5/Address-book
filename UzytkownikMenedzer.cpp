@@ -59,6 +59,7 @@ void UzytkownikMenedzer::wypiszWszystkichUzytkownikow(){
         cout << uzytkownicy[i].pobierzId() << endl;
         cout << uzytkownicy[i].pobierzLogin() << endl;
         cout << uzytkownicy[i].pobierzHaslo() << endl;
+        cout << idZalogowanegoUzytkownika << endl;
     }
 }
 
@@ -103,6 +104,12 @@ int UzytkownikMenedzer::logowanieUzytkownika()
     return ustawIdZalogowanegoUzytkownika(0);
 }
 
+int UzytkownikMenedzer::wylogujUzytkownika()
+{
+    //adresaci.clear();                                        POKI CO NIEWAZNE, POTEM UWZGLEDNIC!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    return ustawIdZalogowanegoUzytkownika(0);
+}
+
 int UzytkownikMenedzer::ustawIdZalogowanegoUzytkownika (int noweIdZalogowanegoUzytkownika) {
     idZalogowanegoUzytkownika = noweIdZalogowanegoUzytkownika;
 }
@@ -129,3 +136,4 @@ void UzytkownikMenedzer::zapiszWszystkichUzytkownikowDoPliku(vector <Uzytkownik>
 {
     plikZUzytkownikami.zapiszWszystkichUzytkownikowDoPliku(uzytkownicy);
 }
+
