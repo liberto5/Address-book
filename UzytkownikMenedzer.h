@@ -27,6 +27,7 @@ public:
     void zmianaHaslaZalogowanegoUzytkownika();
     void zapiszWszystkichUzytkownikowDoPliku(vector <Uzytkownik> &uzytkownicy);
     int ustawIdZalogowanegoUzytkownika (int noweIdZalogowanegoUzytkownika);
+    int wylogujUzytkownika();
 };
 
 #endif //UZYTKOWNIKMENEDZER_H
