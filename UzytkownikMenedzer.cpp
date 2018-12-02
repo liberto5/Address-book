@@ -89,12 +89,17 @@ int UzytkownikMenedzer::logowanieUzytkownika()
                 if (itr -> pobierzHaslo() == haslo)
                 {
                     cout << endl << "Zalogowales sie." << endl << endl;
+                    ustawIdZalogowanegoUzytkownika(itr -> pobierzId());
+                    PlikZAdresatami plikZAdresatami;
+                    plikZAdresatami.wczytajAdresatowZalogowanegoUzytkownikaZPliku(idZalogowanegoUzytkownika);
+                    plikZAdresatami.wyswietlWszystkichAdresatow();
                     system("pause");
                     return ustawIdZalogowanegoUzytkownika(itr -> pobierzId());
                 }
             }
             cout << "Wprowadzono 3 razy bledne haslo." << endl;
             system("pause");
+            ustawIdZalogowanegoUzytkownika(0);
             return ustawIdZalogowanegoUzytkownika(0);
         }
         itr++;

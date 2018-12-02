@@ -8,6 +8,7 @@
 
 #include "Uzytkownik.h"
 #include "PlikZUzytkownikami.h"
+#include "PlikZAdresatami.h"
 
 class UzytkownikMenedzer
 {
