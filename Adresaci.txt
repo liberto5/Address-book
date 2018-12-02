@@ -1,0 +1,3 @@
+1|1|Adam|fff|fff|fff|fff|
+2|2|Arek|fff|fff|fff|fff|
+3|1|Aska|fff|fff|fff|fff|
