@@ -7,10 +7,12 @@
 
 #include "Adresat.h"
 #include "MetodyPomocnicze.h"
+#include "AdresatMenedzer.h"
 
 class PlikZAdresatami
 {
     vector <Adresat> adresaci;
+    int idOstatniegoAdresata;
 public:
     int wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika);
     int pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami);
@@ -18,7 +20,10 @@ public:
     int pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami);
     string pobierzLiczbe(string tekst, int pozycjaZnaku);
     void wyswietlWszystkichAdresatow();
-    void wyswietlDaneAdresata(Adresat adresat);
+    void dodajAdresata();
+    static void dopiszAdresataDoPliku(Adresat adresat);
+    static string zamienDaneAdresataNaLinieZDanymiOddzielonaPionowymiKreskami(Adresat adresat);
+    static bool czyPlikJestPusty(fstream &plikTekstowy);
 };
 
 #endif //PLIKZADRESATAMI_H
