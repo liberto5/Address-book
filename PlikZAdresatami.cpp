@@ -111,10 +111,10 @@ void PlikZAdresatami::wyswietlWszystkichAdresatow()
     adresatMenedzer.wyswietlWszystkichAdresatow(adresaci);
 }
 
-void PlikZAdresatami::dodajAdresata()
+int PlikZAdresatami::dodajAdresata(int idZalogowanegoUzytkownika)
 {
     AdresatMenedzer adresatMenedzer;
-    adresatMenedzer.dodajAdresata(adresaci, 1, idOstatniegoAdresata);
+    return idOstatniegoAdresata = adresatMenedzer.dodajAdresata(adresaci, idZalogowanegoUzytkownika, idOstatniegoAdresata);
 }
 
 void PlikZAdresatami::dopiszAdresataDoPliku(Adresat adresat)
@@ -147,7 +147,6 @@ void PlikZAdresatami::dopiszAdresataDoPliku(Adresat adresat)
 string PlikZAdresatami::zamienDaneAdresataNaLinieZDanymiOddzielonaPionowymiKreskami(Adresat adresat)
 {
     string liniaZDanymiAdresata = "";
-
     liniaZDanymiAdresata += MetodyPomocnicze::konwerjsaIntNaString(adresat.pobierzIdAdresata()) + '|';
     liniaZDanymiAdresata += MetodyPomocnicze::konwerjsaIntNaString(adresat.pobierzIdUzytkownika()) + '|';
     liniaZDanymiAdresata += adresat.pobierzImie() + '|';

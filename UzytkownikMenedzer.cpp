@@ -5,7 +5,6 @@ void UzytkownikMenedzer::rejestracjaUzytkownika()
     Uzytkownik uzytkownik = podajDaneNowegoUzytkownika();
     uzytkownicy.push_back(uzytkownik);
     plikZUzytkownikami.dopiszUzytkownikaDoPliku(uzytkownik);
-
     cout << endl << "Konto zalozono pomyslnie." << endl << endl;
     system("pause");
 }
@@ -91,35 +90,35 @@ int UzytkownikMenedzer::logowanieUzytkownika()
                     cout << endl << "Zalogowales sie." << endl << endl;
                     ustawIdZalogowanegoUzytkownika(itr -> pobierzId());
                     PlikZAdresatami plikZAdresatami;
-                    plikZAdresatami.wczytajAdresatowZalogowanegoUzytkownikaZPliku(idZalogowanegoUzytkownika);
-                    plikZAdresatami.wyswietlWszystkichAdresatow();
+                    ustawIdZalogowanegoUzytkownika(itr -> pobierzId());
                     system("pause");
-                    return ustawIdZalogowanegoUzytkownika(itr -> pobierzId());
+                    return idZalogowanegoUzytkownika;
                 }
             }
             cout << "Wprowadzono 3 razy bledne haslo." << endl;
             system("pause");
             ustawIdZalogowanegoUzytkownika(0);
-            return ustawIdZalogowanegoUzytkownika(0);
+            return idZalogowanegoUzytkownika;
         }
         itr++;
     }
     cout << "Nie ma uzytkownika z takim loginem" << endl << endl;
     system("pause");
-    return ustawIdZalogowanegoUzytkownika(0);
+    ustawIdZalogowanegoUzytkownika(0);
+    return idZalogowanegoUzytkownika;
 }
 
 int UzytkownikMenedzer::wylogujUzytkownika()
 {
-    //adresaci.clear();                                        POKI CO NIEWAZNE, POTEM UWZGLEDNIC!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    return ustawIdZalogowanegoUzytkownika(0);
+    ustawIdZalogowanegoUzytkownika(0);
+    return idZalogowanegoUzytkownika;
 }
 
 int UzytkownikMenedzer::ustawIdZalogowanegoUzytkownika (int noweIdZalogowanegoUzytkownika) {
     idZalogowanegoUzytkownika = noweIdZalogowanegoUzytkownika;
 }
 
-void UzytkownikMenedzer::zmianaHaslaZalogowanegoUzytkownika()
+void UzytkownikMenedzer::zmianaHaslaZalogowanegoUzytkownika(int idZalogowanegoUzytkownika)
 {
     string noweHaslo = "";
     cout << "Podaj nowe haslo: ";
