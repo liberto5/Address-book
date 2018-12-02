@@ -20,7 +20,7 @@ public:
     int pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami);
     string pobierzLiczbe(string tekst, int pozycjaZnaku);
     void wyswietlWszystkichAdresatow();
-    void dodajAdresata();
+    int dodajAdresata(int idZalogowanegoUzytkownika);
     static void dopiszAdresataDoPliku(Adresat adresat);
     static string zamienDaneAdresataNaLinieZDanymiOddzielonaPionowymiKreskami(Adresat adresat);
     static bool czyPlikJestPusty(fstream &plikTekstowy);

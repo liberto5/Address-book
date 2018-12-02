@@ -1,5 +1,5 @@
-1|1|A|Sg|gs|gfs|sg|
-2|1|B|Sgf|sfg|sgf|sgh|
-3|2|C|Sgf|sfg|sgf|sgh|
-4|1|D|G|sg|sgf|gad|
-5|2|E|Gs|sg|sg|s|
+1|2|Tomek|Juchimek|g|gd|dfgasd|
+2|2|Yoda|Dvg|bfs|vbf|vsf|
+3|1|Iga|Fsh|sgdf|sgd|sgd dggd 235 zdgf|
+4|1|Ola|Fgs|d|fdg|sdf|
+5|2|Pola|Dgfs|sg|fd|af af|
