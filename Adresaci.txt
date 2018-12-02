@@ -1,3 +1,5 @@
-1|1|Adam|fff|fff|fff|fff|
-2|2|Arek|fff|fff|fff|fff|
-3|1|Aska|fff|fff|fff|fff|
+1|1|A|Sg|gs|gfs|sg|
+2|1|B|Sgf|sfg|sgf|sgh|
+3|2|C|Sgf|sfg|sgf|sgh|
+4|1|D|G|sg|sgf|gad|
+5|2|E|Gs|sg|sg|s|
