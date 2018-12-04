@@ -2,33 +2,31 @@
 #define UZYTKOWNIKMENEDZER_H
 #include <iostream>
 #include <vector>
-#include <windows.h>
-#include <fstream>
-#include <sstream>
 
 #include "Uzytkownik.h"
 #include "PlikZUzytkownikami.h"
-#include "PlikZAdresatami.h"
 
 class UzytkownikMenedzer
 {
     int idZalogowanegoUzytkownika;
     vector <Uzytkownik> uzytkownicy;
+    PlikZUzytkownikami plikZUzytkownikami;
     Uzytkownik podajDaneNowegoUzytkownika();
     int pobierzIdNowegoUzytkownika();
     bool czyIstniejeLogin(string login);
-    PlikZUzytkownikami plikZUzytkownikami;
 
 public:
-    UzytkownikMenedzer(string nazwaPlikuZUzytkownikami) : plikZUzytkownikami(nazwaPlikuZUzytkownikami) {};
+    UzytkownikMenedzer(string nazwaPlikuZUzytkownikami) : plikZUzytkownikami(nazwaPlikuZUzytkownikami) {
+        idZalogowanegoUzytkownika = 0;
+        uzytkownicy = plikZUzytkownikami.wczytajUzytkownikowZPliku();
+        };
     void rejestracjaUzytkownika();
     void wypiszWszystkichUzytkownikow();
-    void wczytajUzytkownikowZPliku();
-    int logowanieUzytkownika();
-    void zmianaHaslaZalogowanegoUzytkownika(int idZalogowanegoUzytkownika);
-    void zapiszWszystkichUzytkownikowDoPliku(vector <Uzytkownik> &uzytkownicy);
-    int ustawIdZalogowanegoUzytkownika (int noweIdZalogowanegoUzytkownika);
-    int wylogujUzytkownika();
+    void logowanieUzytkownika();
+    void zmianaHaslaZalogowanegoUzytkownika();
+    void wylogujUzytkownika();
+    bool czyUzytkownikJestZalogowany();
+    int pobierzIdZalogowanegoUzytkownika();
 };
 
 #endif //UZYTKOWNIKMENEDZER_H

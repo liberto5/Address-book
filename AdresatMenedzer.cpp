@@ -1,29 +1,30 @@
 #include "AdresatMenedzer.h"
 
-int AdresatMenedzer::dodajAdresata(vector <Adresat> &adresaci, int idZalogowanegoUzytkownika, int idOstatniegoAdresata)
+void AdresatMenedzer::dodajAdresata()
 {
+    Adresat adresat;
     system("cls");
     cout << " >>> DODAWANIE NOWEGO ADRESATA <<<" << endl << endl;
-    adresat = podajDaneNowegoAdresata(idZalogowanegoUzytkownika, idOstatniegoAdresata);
+    adresat = podajDaneNowegoAdresata();
 
     adresaci.push_back(adresat);
-    PlikZAdresatami::dopiszAdresataDoPliku(adresat);
-
-    return ++idOstatniegoAdresata;
+    plikZAdresatami.dopiszAdresataDoPliku(adresat);
 }
 
-Adresat AdresatMenedzer::podajDaneNowegoAdresata(int idZalogowanegoUzytkownika, int idOstatniegoAdresata)
+Adresat AdresatMenedzer::podajDaneNowegoAdresata()
 {
-    adresat.ustawIdAdresata(++idOstatniegoAdresata);
+    Adresat adresat;
+    string imie, nazwisko;
+    adresat.ustawIdAdresata(plikZAdresatami.pobierzIdOstatniegoAdresata() + 1);
     adresat.ustawIdUzytkownika(idZalogowanegoUzytkownika);
 
     cout << "Podaj imie: ";
-    adresat.ustawImie(wczytajLinie());
-    adresat.ustawImie(zamienPierwszaLitereNaDuzaAPozostaleNaMale(adresat.pobierzImie()));
+    imie = wczytajLinie();
+    adresat.ustawImie(zamienPierwszaLitereNaDuzaAPozostaleNaMale(imie));
 
     cout << "Podaj nazwisko: ";
-    adresat.ustawNazwisko(wczytajLinie());
-    adresat.ustawNazwisko(zamienPierwszaLitereNaDuzaAPozostaleNaMale(adresat.pobierzNazwisko()));
+    nazwisko = wczytajLinie();
+    adresat.ustawNazwisko(zamienPierwszaLitereNaDuzaAPozostaleNaMale(nazwisko));
 
     cout << "Podaj numer telefonu: ";
     adresat.ustawNumerTel(wczytajLinie());
@@ -39,7 +40,8 @@ Adresat AdresatMenedzer::podajDaneNowegoAdresata(int idZalogowanegoUzytkownika, 
 
 string AdresatMenedzer::wczytajLinie()
 {
-    string wejscie = "";
+    string wejscie;
+    cin.sync();
     getline(cin, wejscie);
     return wejscie;
 }
@@ -54,7 +56,7 @@ string AdresatMenedzer::zamienPierwszaLitereNaDuzaAPozostaleNaMale(string tekst)
     return tekst;
 }
 
-void AdresatMenedzer::wyswietlWszystkichAdresatow(vector <Adresat> &adresaci)
+void AdresatMenedzer::wyswietlWszystkichAdresatow()
 {
     system("cls");
     if (!adresaci.empty())
