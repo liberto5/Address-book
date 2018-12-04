@@ -1,22 +1,29 @@
 #ifndef ADRESATMENEDZER_H
 #define ADRESATMENEDZER_H
 #include <iostream>
-#include <algorithm>
 #include <vector>
+#include <algorithm>
 
 #include "Adresat.h"
 #include "PlikZAdresatami.h"
 
 class AdresatMenedzer
 {
-    Adresat adresat;
-public:
-    int dodajAdresata(vector <Adresat> &adresaci, int idZalogowanegoUzytkownika, int idOstatniegoAdresata);
-    Adresat podajDaneNowegoAdresata(int idZalogowanegoUzytkownika, int idOstatniegoAdresata);
+    const int idZalogowanegoUzytkownika;
+    vector <Adresat> adresaci;
+    PlikZAdresatami plikZAdresatami;
+    Adresat podajDaneNowegoAdresata();
+    void wyswietlDaneAdresata(Adresat adresat);
     string wczytajLinie();
     string zamienPierwszaLitereNaDuzaAPozostaleNaMale(string tekst);
-    void wyswietlWszystkichAdresatow(vector <Adresat> &adresaci);
-    void wyswietlDaneAdresata(Adresat adresat);
+
+public:
+    AdresatMenedzer (string nazwaPlikuZAdresatami, int IDZALOGOWANEGOUZYTKOWNIKA) : plikZAdresatami(nazwaPlikuZAdresatami), idZalogowanegoUzytkownika(IDZALOGOWANEGOUZYTKOWNIKA)
+    {
+        adresaci = plikZAdresatami.wczytajAdresatowZalogowanegoUzytkownikaZPliku(idZalogowanegoUzytkownika);
+    };
+    void dodajAdresata();
+    void wyswietlWszystkichAdresatow();
 };
 
 #endif //ADRESATMENEDZER_H

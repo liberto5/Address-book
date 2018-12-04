@@ -1,12 +1,13 @@
 #include "PlikZAdresatami.h"
 
-int PlikZAdresatami::wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika)
+vector<Adresat> PlikZAdresatami::wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika)
 {
+    vector <Adresat> adresaci;
     Adresat adresat;
     string daneJednegoAdresataOddzielonePionowymiKreskami = "";
     string daneOstaniegoAdresataWPliku = "";
     fstream plikTekstowy;
-    plikTekstowy.open("Adresaci.txt", ios::in);
+    plikTekstowy.open(nazwaPlikuZAdresatami.c_str(), ios::in);
 
     if (plikTekstowy.good() == true)
     {
@@ -27,11 +28,8 @@ int PlikZAdresatami::wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogow
     if (daneOstaniegoAdresataWPliku != "")
     {
         idOstatniegoAdresata = pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(daneOstaniegoAdresataWPliku);
-        return idOstatniegoAdresata;
     }
-    else
-        idOstatniegoAdresata = 0;
-        return 0;
+    return adresaci;
 }
 
 int PlikZAdresatami::pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami)
@@ -105,23 +103,11 @@ string PlikZAdresatami::pobierzLiczbe(string tekst, int pozycjaZnaku)
     return liczba;
 }
 
-void PlikZAdresatami::wyswietlWszystkichAdresatow()
-{
-    AdresatMenedzer adresatMenedzer;
-    adresatMenedzer.wyswietlWszystkichAdresatow(adresaci);
-}
-
-int PlikZAdresatami::dodajAdresata(int idZalogowanegoUzytkownika)
-{
-    AdresatMenedzer adresatMenedzer;
-    return idOstatniegoAdresata = adresatMenedzer.dodajAdresata(adresaci, idZalogowanegoUzytkownika, idOstatniegoAdresata);
-}
-
 void PlikZAdresatami::dopiszAdresataDoPliku(Adresat adresat)
 {
     string liniaZDanymiAdresata = "";
     fstream plikTekstowy;
-    plikTekstowy.open("Adresaci.txt", ios::out | ios::app);
+    plikTekstowy.open(nazwaPlikuZAdresatami.c_str(), ios::out | ios::app);
 
     if (plikTekstowy.good() == true)
     {
@@ -135,7 +121,9 @@ void PlikZAdresatami::dopiszAdresataDoPliku(Adresat adresat)
         {
             plikTekstowy << endl << liniaZDanymiAdresata ;
         }
+        idOstatniegoAdresata++;
         plikTekstowy.close();
+        cout << endl << "Dodano adresata." << endl << endl;
     }
     else
     {
@@ -166,3 +154,9 @@ bool PlikZAdresatami::czyPlikJestPusty(fstream &plikTekstowy)
     else
         return false;
 }
+
+int PlikZAdresatami::pobierzIdOstatniegoAdresata()
+{
+    return idOstatniegoAdresata;
+}
+
