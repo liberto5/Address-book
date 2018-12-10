@@ -12,9 +12,11 @@ class KsiazkaAdresowa {
     UzytkownikMenedzer uzytkownikMenedzer;
     AdresatMenedzer *adresatMenedzer;
     const string nazwaPlikuZAdresatami;
+    string nazwaTymczasowegoPlikuZAdresatami;
 
 public:
-    KsiazkaAdresowa(string nazwaPlikuZUzytkownikami, string NAZWAPLIKUZADRESATAMI) : uzytkownikMenedzer(nazwaPlikuZUzytkownikami), nazwaPlikuZAdresatami(NAZWAPLIKUZADRESATAMI) {};
+    KsiazkaAdresowa(string nazwaPlikuZUzytkownikami, string NAZWAPLIKUZADRESATAMI, string NAZWATYMCZASOWEGOPLIKUZADRESATAMI) :
+        uzytkownikMenedzer(nazwaPlikuZUzytkownikami), nazwaPlikuZAdresatami(NAZWAPLIKUZADRESATAMI), nazwaTymczasowegoPlikuZAdresatami(NAZWATYMCZASOWEGOPLIKUZADRESATAMI) {};
     ~KsiazkaAdresowa() {
         delete adresatMenedzer;
     }
@@ -25,7 +27,10 @@ public:
     void wylogujUzytkownika();
 
     void dodajAdresata();
+    void wyszukajAdresatowPoImieniu();
+    void wyszukajAdresatowPoNazwisku();
     void wyswietlWszystkichAdresatow();
+    int usunAdresata();
 };
 
 #endif //KSIAZKAADRESOWA_H
