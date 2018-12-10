@@ -20,10 +20,11 @@ int main()
     //ksiazkaAdresowa.wypiszWszystkichUzytkownikow();
     //ksiazkaAdresowa.wyszukajAdresatowPoImieniu();
     //ksiazkaAdresowa.wyszukajAdresatowPoNazwisku();
-    ksiazkaAdresowa.usunAdresata();
-    ksiazkaAdresowa.dodajAdresata();
-    ksiazkaAdresowa.usunAdresata();
-    ksiazkaAdresowa.dodajAdresata();
+    //ksiazkaAdresowa.usunAdresata();
+    //ksiazkaAdresowa.dodajAdresata();
+    //ksiazkaAdresowa.usunAdresata();
+    //ksiazkaAdresowa.dodajAdresata();
+    ksiazkaAdresowa.edytujAdresata();
     ksiazkaAdresowa.wyswietlWszystkichAdresatow();
     //ksiazkaAdresowa.wylogujUzytkownika();
 }

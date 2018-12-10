@@ -23,6 +23,8 @@ class AdresatMenedzer
     char wczytajZnak();
     int pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami);
     string pobierzLiczbe(string tekst, int pozycjaZnaku);
+    char wybierzOpcjeZMenuEdycja();
+    void zaktualizujDaneEdytowanegoAdresata(Adresat adresat, int idEdytowanegoAdresata);
 
 public:
     AdresatMenedzer (string nazwaPlikuZAdresatami, int IDZALOGOWANEGOUZYTKOWNIKA, string nazwaTymczasowegoPlikuZAdresatami) :
@@ -35,6 +37,7 @@ public:
     void wyszukajAdresatowPoNazwisku();
     void wyswietlWszystkichAdresatow();
     int usunAdresata();
+    void edytujAdresata();
 
 };
 
