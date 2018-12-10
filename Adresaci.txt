@@ -1,4 +1,0 @@
-1|1|B|B|B|B|B|
-3|1|D|D|D|D|D|
-5|1|Dfg|Dg|dgs|dgs|gd|
-6|1|Sf|Sf|sf|gsf|fsg|
