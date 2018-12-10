@@ -22,9 +22,10 @@ class PlikZAdresatami
     void zmienNazweTymczasowegoPlikuNaNazweOdczytywanegoPliku(string nazwaTymczasowegoPlikuZRozszerzeniem, string nazwaPlikuZRozszerzeniem);
 
 public:
-    PlikZAdresatami(string NAZWAPLIKUZADRESATAMI, string NAZWATYMCZASOWEGOPLIKUZADRESATAMI) :
-        nazwaPlikuZAdresatami(NAZWAPLIKUZADRESATAMI), nazwaTymczasowegoPlikuZAdresatami(NAZWATYMCZASOWEGOPLIKUZADRESATAMI) {
+    PlikZAdresatami(string NAZWAPLIKUZADRESATAMI) :
+        nazwaPlikuZAdresatami(NAZWAPLIKUZADRESATAMI) {
         idOstatniegoAdresata = 0;
+        nazwaTymczasowegoPlikuZAdresatami = "Adresaci-tmp.txt";
     };
     vector<Adresat> wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika);
     void dopiszAdresataDoPliku(Adresat adresat);
